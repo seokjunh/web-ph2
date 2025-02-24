@@ -1,10 +1,14 @@
+import { Link } from "@/i18n/routing";
 import { SetStateAction } from "react";
+import { useTranslations } from "use-intl";
 
 interface NavMenuProps {
   setIsOpenNavMenu: (value: SetStateAction<boolean>) => void;
 }
 
 const NavMenu = ({ setIsOpenNavMenu }: NavMenuProps) => {
+  const t = useTranslations("NavBar");
+
   const mouseLeaveHandler = () => {
     setIsOpenNavMenu(false);
   };
@@ -13,34 +17,119 @@ const NavMenu = ({ setIsOpenNavMenu }: NavMenuProps) => {
       className="border-t border-gray-300 bg-white py-5"
       onMouseLeave={mouseLeaveHandler}
     >
-      <div className="mx-auto flex max-w-4xl justify-between text-[1.1rem]">
-        <div>
-          <div>비즈니스</div>
-          <div>Smart Factory</div>
-          <div>DI</div>
-          <div>MES</div>
-        </div>
-        <div>
-          <div>솔루션</div>
-          <div>CoreCode</div>
-          <div>P2E</div>
-          <div>Q2E</div>
-          <div>S2E</div>
-          <div>E2E</div>
+      <div className="mx-auto flex max-w-4xl justify-between text-center">
+        <div className="space-y-2">
+          <div className="text-[1.3rem] font-medium">{t("business.title")}</div>
+          <div className="flex flex-col space-y-1 text-gray-700">
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              Smart Factory
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              DI
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              MES
+            </Link>
+          </div>
         </div>
 
-        <div>
-          <div>회사소개</div>
-          <div>나무아이앤씨</div>
-          <div>인사말</div>
-          <div>비전</div>
-          <div>연혁</div>
+        <div className="space-y-2">
+          <div className="text-[1.3rem] font-medium">{t("solution.title")}</div>
+          <div className="flex flex-col space-y-1 text-gray-700">
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              CoreCode
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              P2E
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              Q2E
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              S2E
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              E2E
+            </Link>
+          </div>
         </div>
-        <div>
-          <div>고객지원</div>
-          <div>자료실</div>
-          <div>오시는 길</div>
-          <div>게시판</div>
+
+        <div className="space-y-2">
+          <div className="text-[1.3rem] font-medium">{t("company.title")}</div>
+          <div className="flex flex-col space-y-1 text-gray-700">
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              {t("company.items.name")}
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              {t("company.items.greetings")}
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              {t("company.items.vision")}
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              {t("company.items.history")}
+            </Link>
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <div className="text-[1.3rem] font-medium">{t("support.title")}</div>
+          <div className="flex flex-col space-y-1 text-gray-700">
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              {t("support.items.dataRoom")}
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              {t("support.items.directions")}
+            </Link>
+            <Link
+              href={"/"}
+              className="hover:text-green-600 hover:underline hover:decoration-2 hover:underline-offset-4"
+            >
+              {t("support.items.noticeBoard")}
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,31 @@
+{
+  "LocaleSwitcher": {
+    "locale": "{locale, select, ko {KOR} en {ENG} other {Unknown}}"
+  },
+  "NavBar": {
+    "business": {
+      "title": "비즈니스"
+    },
+    "solution": {
+      "title": "솔루션"
+    },
+
+    "company": {
+      "title": "회사소개",
+      "items": {
+        "name": "나무아이앤씨",
+        "greetings": "인사말",
+        "vision": "비전",
+        "history": "연혁"
+      }
+    },
+    "support": {
+      "title": "고객지원",
+      "items": {
+        "dataRoom": "자료실",
+        "directions": "오시는 길",
+        "noticeBoard": "게시판"
+      }
+    }
+  }
+}
