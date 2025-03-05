@@ -14,7 +14,7 @@ const LocaleSwicher = () => {
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center md:scale-100 scale-75">
       <Global />
       <select
         defaultValue={locale}

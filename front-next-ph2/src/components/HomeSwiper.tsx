@@ -3,12 +3,13 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useState } from "react";
+import ViewMoreButton from "./ViewMoreButton";
 
 const items = [
   {
@@ -61,22 +62,18 @@ const HomeSwiper = () => {
               priority={idx === 0}
             />
           </div>
-          <div className="absolute top-1/2 left-1/3 -translate-x-1/3 -translate-y-1/2 space-y-20 text-white">
+          <div className="absolute inset-0 flex items-center justify-center space-y-20 text-white">
             <div
-              className={
-                activeIndex === idx ? "animate-fadeInUp space-y-4" : "space-y-4"
-              }
+              className={`space-y-4 ${activeIndex === idx && "animate-fadeInUp"} `}
             >
-              <div className="space-y-4 text-2xl font-semibold md:text-4xl xl:text-6xl">
+              <div className="text-xl font-semibold sm:space-y-4 md:text-4xl xl:text-6xl">
                 <div>{item.title1}</div>
                 <div>{item.title2}</div>
               </div>
               <div className="text-[0.6rem] md:text-[0.9rem] xl:text-[1.5rem]">
                 {item.desc}
               </div>
-              <button className="cursor-pointer border border-white px-8 py-2 text-[1rem] font-semibold hover:border-transparent hover:bg-green-600 md:px-12 md:py-3 md:text-xl xl:px-16 xl:py-4 xl:text-2xl">
-                View More
-              </button>
+              <ViewMoreButton />
             </div>
           </div>
         </SwiperSlide>
