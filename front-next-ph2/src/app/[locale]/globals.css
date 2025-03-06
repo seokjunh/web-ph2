@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 @theme {
   --animate-fadeInUp: fade-in-up 1.5s ease-in-out;
 

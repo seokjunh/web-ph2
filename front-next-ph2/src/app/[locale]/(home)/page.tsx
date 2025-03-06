@@ -1,7 +1,7 @@
-import HomeSwiper from "@/components/HomeSwiper";
+import HomeContent from "@/components/HomeContent";
 
 const page = () => {
-  return <HomeSwiper />;
+  return <HomeContent />;
 };
 
 export default page;
