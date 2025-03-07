@@ -1,36 +1,48 @@
 import { Link } from "@/i18n/routing";
+import useNavMenuStore from "@/stores/NavMenuStore";
 import { useTranslations } from "next-intl";
-import { SetStateAction } from "react";
 
-interface NavMenuProps {
-  setIsOpenNavMenu: (value: SetStateAction<boolean>) => void;
-}
-
-const NavMenu = ({ setIsOpenNavMenu }: NavMenuProps) => {
+const NavMenu = () => {
+  const { setIsOpenNavMenu } = useNavMenuStore();
   const t = useTranslations("NavBar");
+
   const mouseEnterHandler = () => {
     setIsOpenNavMenu(true);
   };
+
   return (
-    <>
-      <div
-        className="hidden items-center space-x-8 text-[1.2rem] font-semibold sm:block"
-        onMouseEnter={mouseEnterHandler}
-      >
-        <Link href={"/business"} className="hover:text-green-600">
+    <div className="hidden w-full sm:block">
+      <div className="flex justify-center space-x-[10rem] text-[1.2rem] font-semibold">
+        <Link
+          href={"/business"}
+          onMouseEnter={mouseEnterHandler}
+          className="decoration-[0.2em] underline-offset-[2rem] hover:text-green-600 hover:underline"
+        >
           {t("business.title")}
         </Link>
-        <Link href={"/solution"} className="hover:text-green-600">
+        <Link
+          href={"/solution"}
+          onMouseEnter={mouseEnterHandler}
+          className="decoration-[0.2em] underline-offset-[2rem] hover:text-green-600 hover:underline"
+        >
           {t("solution.title")}
         </Link>
-        <Link href={"/company"} className="hover:text-green-600">
+        <Link
+          href={"/company"}
+          onMouseEnter={mouseEnterHandler}
+          className="decoration-[0.2em] underline-offset-[2rem] hover:text-green-600 hover:underline"
+        >
           {t("company.title")}
         </Link>
-        <Link href={"/support"} className="hover:text-green-600">
+        <Link
+          href={"/support"}
+          onMouseEnter={mouseEnterHandler}
+          className="decoration-[0.2em] underline-offset-[2rem] hover:text-green-600 hover:underline"
+        >
           {t("support.title")}
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 export default NavMenu;

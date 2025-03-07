@@ -5,7 +5,7 @@ import HomeItem2 from "./HomeItem2";
 import HomeSwiper from "./HomeSwiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, Pagination } from "swiper/modules";
+import { Mousewheel } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,10 +18,7 @@ const HomeContent = () => {
     <>
       <Swiper
         direction={"vertical"}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination, Mousewheel]}
+        modules={[Mousewheel]}
         className="h-screen"
         mousewheel
         speed={1200}
