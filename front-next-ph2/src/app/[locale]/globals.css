@@ -5,30 +5,26 @@
 }
 
 @theme {
-  --animate-fadeInUp: fade-in-up 1.5s ease-in-out;
-  --animate-fadeInDown: fade-in-down 0.8s ease-in-out;
+  --animate-slideFadeInDropdown: slide-fade-in-dropdown 0.6s ease-in-out;
+  --animate-slideFadeOutDropdown: slide-fade-out-dropdown 0.6s ease-in-out;
 
-  @keyframes fade-in-up {
+  @keyframes slide-fade-in-dropdown {
     0% {
-      opacity: 0;
-      transform: translate3d(0, 100%, 0);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-
-  @keyframes fade-in-down {
-    0% {
-      opacity: 0;
       transform: translate3d(0, -100%, 0);
     }
 
     100% {
-      opacity: 1;
       transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes slide-fade-out-dropdown {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 100%, 0);
     }
   }
 }

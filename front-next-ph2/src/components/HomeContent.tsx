@@ -15,26 +15,24 @@ const HomeContent = () => {
   const { setSwiperIndex } = useSwiperStore();
 
   return (
-    <>
-      <Swiper
-        direction={"vertical"}
-        modules={[Mousewheel]}
-        className="h-screen"
-        mousewheel
-        speed={1200}
-        onActiveIndexChange={(e) => setSwiperIndex(e.realIndex)}
-      >
-        <SwiperSlide>
-          <HomeSwiper />
-        </SwiperSlide>
-        <SwiperSlide>
-          <HomeItem1 />
-        </SwiperSlide>
-        <SwiperSlide>
-          <HomeItem2 />
-        </SwiperSlide>
-      </Swiper>
-    </>
+    <Swiper
+      direction={"vertical"}
+      modules={[Mousewheel]}
+      className="h-screen"
+      mousewheel
+      speed={1200}
+      onActiveIndexChange={(e) => setSwiperIndex(e.realIndex)}
+    >
+      <SwiperSlide>
+        <HomeSwiper />
+      </SwiperSlide>
+      <SwiperSlide>
+        <HomeItem1 />
+      </SwiperSlide>
+      <SwiperSlide>
+        <HomeItem2 />
+      </SwiperSlide>
+    </Swiper>
   );
 };
 export default HomeContent;

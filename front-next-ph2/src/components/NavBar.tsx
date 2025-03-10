@@ -13,16 +13,22 @@ const NavBar = () => {
   const { swiperIndex } = useSwiperStore();
 
   return (
-    <div
-      className={`absolute z-10 w-full ${swiperIndex === 0 ? (isOpenNavMenu ? "bg-white text-black" : "text-white") : "bg-white"}`}
-    >
-      <div>
+    <div className="absolute z-20 w-full">
+      <div
+        className={`${swiperIndex === 0 ? (isOpenNavMenu ? "bg-white text-black" : "text-white") : "bg-white"}`}
+      >
         <div className="flex items-center justify-between px-[10rem] py-5">
           <Logo />
           <NavMenu />
           <LocaleSwicher />
         </div>
-        {isOpenNavMenu && <NavDetailMenu />}
+      </div>
+      <div
+        className={`relative -z-10 transition-all duration-500 ease-out ${
+          isOpenNavMenu ? "top-0 opacity-100" : "-top-96 opacity-0"
+        }`}
+      >
+        <NavDetailMenu />
       </div>
     </div>
   );
