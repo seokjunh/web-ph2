@@ -14,7 +14,7 @@ const LocaleSwicher = () => {
   };
 
   return (
-    <div className="flex items-center md:scale-100 scale-75">
+    <div className="flex scale-75 items-center md:scale-100">
       <Global />
       <select
         defaultValue={locale}
@@ -22,7 +22,7 @@ const LocaleSwicher = () => {
         onChange={onSelectChange}
       >
         {routing.locales.map((cur) => (
-          <option key={cur} value={cur}>
+          <option key={cur} value={cur} className="text-black">
             {t("locale", { locale: cur })}
           </option>
         ))}

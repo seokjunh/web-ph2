@@ -1,36 +1,50 @@
 "use client";
 
-import NavDetailMenu from "./NavDetailMenu";
+// import NavDetailMenu from "./NavDetailMenu";
 import LocaleSwicher from "./LocaleSwicher";
 import NavMenu from "./NavMenu";
 // import MobileMenu from "./MobileMenu";
 import Logo from "./Logo";
-import useSwiperStore from "@/stores/swiperStroe";
 import useNavMenuStore from "@/stores/NavMenuStore";
+import useGlobalScroll from "@/app/hooks/useGlobalScroll";
 
 const NavBar = () => {
   const { isOpenNavMenu } = useNavMenuStore();
-  const { swiperIndex } = useSwiperStore();
+  const scroll = useGlobalScroll();
+
+  // 배경 스타일 로직 간소화
+  const getBackgroundStyle = () => {
+    if (isOpenNavMenu) {
+      return "bg-white text-black";
+    } else if (scroll) {
+      return "text-white backdrop-blur-md delay-150";
+    } else {
+      return "text-white delay-150";
+    }
+  };
 
   return (
-    <div className="absolute z-20 w-full">
+    <header className="fixed z-20 w-full">
       <div
-        className={`${swiperIndex === 0 ? (isOpenNavMenu ? "bg-white text-black" : "text-white") : "bg-white"}`}
+        className={`mx-auto flex items-center justify-between px-4 ${getBackgroundStyle()}`}
       >
-        <div className="flex items-center justify-between px-[10rem] py-5">
-          <Logo />
-          <NavMenu />
-          <LocaleSwicher />
-        </div>
+        <Logo />
+        <NavMenu />
+        <LocaleSwicher />
       </div>
-      <div
+
+      {/* <div
         className={`relative -z-10 transition-all duration-500 ease-out ${
-          isOpenNavMenu ? "top-0 opacity-100" : "-top-96 opacity-0"
+          isOpenNavMenu
+            ? "top-0 opacity-100 delay-150"
+            : "-top-[15.375rem] opacity-0"
         }`}
+        aria-hidden={!isOpenNavMenu}
       >
         <NavDetailMenu />
-      </div>
-    </div>
+      </div> */}
+    </header>
   );
 };
+
 export default NavBar;
