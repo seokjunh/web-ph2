@@ -1,7 +1,6 @@
 import { Link } from "@/i18n/routing";
 import useNavMenuStore from "@/stores/NavMenuStore";
 import { useTranslations } from "next-intl";
-import NavDetailMenu from "./NavDetailMenu";
 
 const navMenus = [
   {
@@ -20,7 +19,7 @@ const navMenus = [
 
 const NavMenu = () => {
   const t = useTranslations("NavBar");
-  const { isOpenNavMenu, setIsOpenNavMenu } = useNavMenuStore();
+  const { setIsOpenNavMenu } = useNavMenuStore();
 
   const handleMouseEnter = () => {
     setIsOpenNavMenu(true);
@@ -38,8 +37,8 @@ const NavMenu = () => {
       onMouseLeave={handleMouseLeave}
     >
       <ul className="flex items-center justify-center text-lg font-medium">
-        {navMenus.map((item) => (
-          <li key={item.href}>
+        {navMenus.map((item, idx) => (
+          <li key={idx} className="relative text-center">
             <Link
               href={item.href}
               className="block border-b-2 border-transparent px-10 py-7 transition-all duration-200 hover:border-green-600 hover:font-extrabold hover:text-green-600"
@@ -50,15 +49,6 @@ const NavMenu = () => {
           </li>
         ))}
       </ul>
-      <div
-        className={`absolute left-0 -z-10 w-full transition-all duration-500 ease-out ${
-          isOpenNavMenu
-            ? "top-[5.375rem] opacity-100 delay-150"
-            : "-top-[15.375rem] opacity-0"
-        }`}
-      >
-        <NavDetailMenu />
-      </div>
     </nav>
   );
 };

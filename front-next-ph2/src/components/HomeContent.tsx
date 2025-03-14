@@ -1,38 +1,36 @@
 "use client";
 
-import "swiper/css";
-import "swiper/css/pagination";
-
-import Image from "next/image";
-import { useEffect, useState } from "react";
-
-const images = ["/image/img1.png", "/image/img2.png", "/image/img3.png"];
+import HomeItem1 from "@/components/HomeItem1";
+import HomeItem2 from "@/components/HomeItem2";
+import { useEffect, useRef } from "react";
 
 const HomeContent = () => {
-  const [idx, setIdx] = useState(0);
+  const wheelRef = useRef(null);
+
+  const wheelHandler = (e: React.WheelEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const { deltaY } = e;
+    const { scrollTop } = wheelRef.current;
+    const pageHeight = window.innerHeight;
+
+    if (deltaY > 0) {
+      console.log(deltaY, scrollTop, pageHeight);
+    } else {
+      console.log(deltaY, scrollTop, pageHeight);
+    }
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIdx((prev) => (prev + 1) % images.length);
-    }, 4000);
+    window.addEventListener("wheel", wheelHandler);
 
     return () => {
-      clearInterval(interval);
+      window.removeEventListener("whell", wheelHandler);
     };
-  }, []);
-
+  });
   return (
-    <div className="h-screen bg-black">
-      {images.map((src, i) => (
-        <div key={i} className="will">
-          <Image
-            src={src}
-            alt=""
-            fill
-            className={`object-cover transition-all duration-[2s] ${idx === i ? "opacity-100" : "opacity-0"}`}
-          />
-        </div>
-      ))}
+    <div ref={wheelRef}>
+      <HomeItem1 />
+      <HomeItem2 />
     </div>
   );
 };
