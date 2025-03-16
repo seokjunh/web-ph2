@@ -2,56 +2,43 @@
 
 import HomeItem1 from "@/components/HomeItem1";
 import HomeItem2 from "@/components/HomeItem2";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const HomeContent = () => {
-  const wheelRef = useRef<HTMLDivElement | null>(null);
+  const [page, setPage] = useState(() => {
+    const savedPage = localStorage.getItem("page");
+    return savedPage ? parseInt(savedPage, 10) : 0; // 값이 없으면 0으로 초기화
+  });
+  const lastPage = 1;
+  const wheelRef = useRef(null);
 
   useEffect(() => {
     const wheelHandler = (e: WheelEvent) => {
-      if (wheelRef.current == null) {
-        return;
-      }
-      const { deltaY } = e;
-      const { scrollTop } = wheelRef.current;
-      const pageHeight = window.innerHeight;
+      e.preventDefault();
 
-      if (deltaY > 0) {
-        if (scrollTop >= 0 && scrollTop < pageHeight) {
-          e.preventDefault();
-          //현재 1페이지
-          console.log("현재 1페이지, down");
-          wheelRef.current.scrollTo({
-            top: pageHeight,
-            left: 0,
-            behavior: "smooth",
-          });
-        } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
-          //현재 2페이지
-          console.log("현재 2페이지, down");
-          wheelRef.current.scrollTo({
-            top: pageHeight * 2,
-            left: 0,
-            behavior: "smooth",
-          });
-        }
+      if (e.deltaY > 0) {
+        setPage((prev) => Math.min(prev + 1, lastPage));
+        console.log(page);
       } else {
-        console.log(deltaY, scrollTop, pageHeight);
+        setPage((prev) => Math.max(prev - 1, 0));
+        console.log(page);
       }
     };
 
-    const wheelRefCurrent = wheelRef.current;
-    if (wheelRefCurrent == null) {
-      return;
-    }
-    wheelRefCurrent.addEventListener("wheel", wheelHandler);
+    window.addEventListener("wheel", wheelHandler, { passive: false });
+
+    localStorage.setItem("page", page.toString());
 
     return () => {
-      wheelRefCurrent.removeEventListener("wheel", wheelHandler);
+      window.removeEventListener("wheel", wheelHandler);
     };
-  }, []);
+  }, [page]);
   return (
-    <div ref={wheelRef}>
+    <div
+      ref={wheelRef}
+      className="relative space-y-[5.375rem] transition-all duration-1000"
+      style={{ top: `${page * -100}vh` }}
+    >
       <HomeItem1 />
       <HomeItem2 />
     </div>
