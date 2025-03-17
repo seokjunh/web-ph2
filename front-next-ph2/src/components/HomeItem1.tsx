@@ -19,21 +19,12 @@ const HomeItem1 = () => {
   }, []);
 
   return (
-    <div className="h-[calc(100vh-5.375rem)] px-[10rem] pt-[3rem] pb-[5rem]">
-      <div className="relative h-full w-full overflow-hidden rounded-4xl">
-        <Image
-          src={images[currentIdx]}
-          alt=""
-          fill
-          className="object-cover brightness-50"
-        />
-      </div>
-
-      {/* <div className="flex overflow-hidden rounded-2xl">
+    <div className="h-[calc(100vh-5.375rem)] px-[5.938rem] pt-[0.938rem] pb-[6.813rem]">
+      <div className="relative h-full w-full overflow-hidden rounded-4xl bg-black">
         {images.map((img, idx) => (
           <div
             key={idx}
-            className={`transition-transform ${currentIdx == idx ? `translate-x-${currentIdx * 100}%` : ""}`}
+            className={`absolute h-full w-full transition-opacity duration-[2s] ease-in-out ${currentIdx === idx ? "opacity-100" : "opacity-0"}`}
           >
             <Image
               src={img}
@@ -43,7 +34,7 @@ const HomeItem1 = () => {
             />
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 };

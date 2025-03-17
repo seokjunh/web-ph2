@@ -1,6 +1,6 @@
 const HomeItem2 = () => {
   return (
-    <div className="h-[calc(100vh-5.375rem)]">
+    <div className="h-[calc(100vh-5.375rem)] bg-amber-700-400">
       <div className="flex flex-col items-center">
         <div className="text-2xl font-bold text-[#303030]">About Us</div>
         <div className="text-4xl font-medium">고객의 가치를 최우선으로 생각하는 나무아이앤씨</div>
