@@ -1,5 +1,5 @@
-import { useLocale, useTranslations } from "next-intl";
 import { routing, usePathname, useRouter } from "@/i18n/routing";
+import { useLocale, useTranslations } from "next-intl";
 import Global from "../../public/svg/Global";
 
 const LocaleSwicher = () => {

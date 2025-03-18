@@ -19,8 +19,8 @@ const HomeItem1 = () => {
   }, []);
 
   return (
-    <div className="h-[calc(100vh-5.375rem)] px-[5.938rem] pt-[0.938rem] pb-[6.813rem]">
-      <div className="relative h-full w-full overflow-hidden rounded-4xl bg-black">
+    <div className="h-[calc(100vh-6.25rem)]">
+      <div className="relative mx-auto my-auto aspect-[16/9] max-h-[47rem] w-full max-w-[110rem] overflow-hidden rounded-4xl bg-black">
         {images.map((img, idx) => (
           <div
             key={idx}
@@ -32,6 +32,19 @@ const HomeItem1 = () => {
               fill
               className="object-cover brightness-50"
             />
+            <div className="absolute top-[30%] left-[10%] space-y-4 p-4 text-left text-white sm:p-6 md:p-8">
+              <div>
+                <p className="text-lg font-bold sm:text-xl md:text-5xl">
+                  Innovate
+                </p>
+                <p className="text-3xl font-extrabold sm:text-4xl md:text-7xl">
+                  for Tomorrow
+                </p>
+              </div>
+              <p className="text-lg font-bold sm:text-xl md:text-2xl">
+                고객의 가치를 최우선으로 실현하는 최고의 전문 파트너
+              </p>
+            </div>
           </div>
         ))}
       </div>

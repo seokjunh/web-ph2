@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   display: none;
+} */
+
+.swiper-pagination {
+  position: absolute;
+  width: 30rem;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #000;
+  border-radius: 3rem;
+  top: 90% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  padding: 0 27px;
+}
+
+.custom_bullet {
+  padding: 17px 0 19px 0;
+  color: #fff;
+  transition: all 0.3s;
+  cursor: pointer;;
+}
+
+.swiper-pagination-custom-bullet-active {
+  color: seagreen;
 }

@@ -8,7 +8,7 @@ import Logo from "./Logo";
 const NavBar = () => {
   return (
     <header className="fixed z-10 w-full">
-      <div className="mx-auto flex max-w-[100rem] items-center justify-around">
+      <div className="flex items-center justify-between px-[5rem] h-[6.25rem]">
         <Logo />
         <NavMenu />
         <LocaleSwicher />

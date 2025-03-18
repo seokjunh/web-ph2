@@ -1,14 +1,8 @@
 import { Link } from "@/i18n/routing";
-import useNavMenuStore from "@/stores/NavMenuStore";
 import { useTranslations } from "use-intl";
 
 const NavDetailMenu = () => {
   const t = useTranslations("NavBar");
-  const { setIsOpenNavMenu } = useNavMenuStore();
-
-  const handleMouseLeave = () => {
-    setIsOpenNavMenu(false);
-  };
 
   // 메뉴 데이터 구조화
   const menuSections = [
@@ -52,7 +46,6 @@ const NavDetailMenu = () => {
   return (
     <nav
       className="border-t border-t-gray-300 bg-white py-8"
-      onMouseLeave={handleMouseLeave}
       aria-label="상세 메뉴"
     >
       <div className="mx-auto flex justify-center gap-20">

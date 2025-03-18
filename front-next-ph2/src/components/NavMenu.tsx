@@ -1,5 +1,5 @@
 import { Link } from "@/i18n/routing";
-import useNavMenuStore from "@/stores/NavMenuStore";
+// import useNavMenuStore from "@/stores/NavMenuStore";
 import { useTranslations } from "next-intl";
 
 const navMenus = [
@@ -19,30 +19,19 @@ const navMenus = [
 
 const NavMenu = () => {
   const t = useTranslations("NavBar");
-  const { setIsOpenNavMenu } = useNavMenuStore();
-
-  const handleMouseEnter = () => {
-    setIsOpenNavMenu(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsOpenNavMenu(false);
-  };
 
   return (
     <nav
       className="hidden sm:block"
       role="navigation"
       aria-label="메인 메뉴"
-      onMouseLeave={handleMouseLeave}
     >
-      <ul className="flex items-center justify-center text-lg font-medium">
+      <ul className="flex items-center justify-center text-lg font-bold">
         {navMenus.map((item, idx) => (
           <li key={idx} className="relative text-center">
             <Link
               href={item.href}
-              className="block border-b-2 border-transparent px-10 py-7 transition-all duration-200 hover:border-green-600 hover:font-extrabold hover:text-green-600"
-              onMouseEnter={handleMouseEnter}
+              className="px-[2.5rem]"
             >
               {t(item.title)}
             </Link>

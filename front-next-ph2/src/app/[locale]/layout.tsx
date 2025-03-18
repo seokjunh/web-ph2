@@ -41,7 +41,7 @@ export default async function RootLayout({
       <body className={pretendard.className}>
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <div className="pt-[5.375rem]">{children}</div>
+          <div className="pt-[6.25rem]">{children}</div>
         </NextIntlClientProvider>
       </body>
     </html>

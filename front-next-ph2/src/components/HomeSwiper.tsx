@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useState } from "react";
 import ViewMoreButton from "./ViewMoreButton";
 
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
