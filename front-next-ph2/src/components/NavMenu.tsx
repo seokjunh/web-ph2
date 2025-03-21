@@ -13,6 +13,11 @@ const navMenus = [
     title: "solution.title",
     subMenu: ["CoreCode", "P2E", "Q2E", "S2E", "E2E"],
   },
+  {
+    href: "/product",
+    title: "product.title",
+    subMenu: ["CoreCode", "P2E", "Q2E", "S2E", "E2E"],
+  },
   { href: "/company", title: "company.title", subMenu: ["adsfasd", "sdafas"] },
   { href: "/support", title: "support.title", subMenu: ["asdf", "asdfas"] },
 ];
