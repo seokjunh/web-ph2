@@ -22,9 +22,6 @@ jobs:
 
             - name: Setup Gradle
               uses: gradle/actions/setup-gradle@v4
-
-            - name: Check gradlew file exists
-              run: ls -al back-springboot-ph2
                 
             - name: Grant execute permission for gradlew
               run: chmod +x back-springboot-ph2/gradlew
@@ -33,9 +30,6 @@ jobs:
               run: |
                 cd back-springboot-ph2
                 ./gradlew clean build
-
-            - name: Verify JAR file
-              run: ls -al back-springboot-ph2/build/libs
 
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v3
