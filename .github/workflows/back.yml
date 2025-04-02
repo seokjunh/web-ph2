@@ -14,23 +14,6 @@ jobs:
             - name: 최신 버전을 다운로드 받습니다.
               uses: actions/checkout@v4.2.2
 
-            - name: Setup Java
-              uses: actions/setup-java@v4
-              with:
-                distribution: 'temurin'
-                java-version: 21
-
-            - name: Setup Gradle
-              uses: gradle/actions/setup-gradle@v4
-                
-            - name: Grant execute permission for gradlew
-              run: chmod +x back-springboot-ph2/gradlew
-              
-            - name: Build with Gradle
-              run: |
-                cd back-springboot-ph2
-                ./gradlew clean build
-
             - name: Set up Docker Buildx
               uses: docker/setup-buildx-action@v3
 
