@@ -24,6 +24,11 @@ public class NoitceController {
     @Autowired
     private NoticeRepository noticeRepository;
 
+    @GetMapping("/")
+    public String init(){
+        return "Server Started!!";
+    }
+
     @PostMapping("/create")
     public Notice createNotice(@RequestPart("data") Notice notice) {
         return noticeRepository.save(notice);
