@@ -12,14 +12,12 @@ const navMenus: NavMenu[] = [
     title: "business",
     subMenu: [
       { title: "Smart Factory", href: "/support/notice" },
-      { title: "DI", href: "/support/directions" },
-      { title: "MES", href: "/support/directions" },
+      { title: "Data Interface", href: "/support/directions" },
     ],
   },
   {
     title: "solution",
     subMenu: [
-      { title: "CoreCode", href: "/support/notice" },
       { title: "P2E", href: "/support/directions" },
       { title: "Q2E", href: "/support/directions" },
       { title: "S2E", href: "/support/directions" },
@@ -28,18 +26,12 @@ const navMenus: NavMenu[] = [
   },
   {
     title: "product",
-    subMenu: [
-      { title: "CoreCode", href: "/support/notice" },
-      { title: "P2E", href: "/support/directions" },
-      { title: "Q2E", href: "/support/directions" },
-      { title: "S2E", href: "/support/directions" },
-      { title: "E2E", href: "/support/directions" },
-    ],
+    subMenu: [{ title: "CoreCode", href: "/support/notice" }],
   },
   {
     title: "company",
     subMenu: [
-      { title: "인삿말", href: "/company/greeting" },
+      { title: "나무아이앤씨", href: "/company/greeting" },
       { title: "연혁", href: "/company/history" },
       { title: "비전", href: "/company/vision" },
     ],
@@ -76,7 +68,7 @@ const NavMenu = () => {
                   <li key={subIdx} className="hover:bg-gray-100">
                     <Link
                       href={`${subItem.href}`}
-                      className="block px-4 py-2 text-sm"
+                      className="block px-4 py-2 text-base font-semibold"
                     >
                       {subItem.title}
                     </Link>

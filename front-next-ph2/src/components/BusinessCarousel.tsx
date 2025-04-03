@@ -38,11 +38,12 @@ const BusinessCarousel = () => {
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
             <div className="h-[10rem] w-[15rem] rounded-3xl border border-transparent bg-white p-4 transition-colors duration-200 hover:border-[#96cb4f] lg:h-[20rem] lg:w-[25rem] lg:p-6">
               <div className="flex h-full flex-col text-left">
-                <div className="relative h-[1.5rem] w-[8rem] md:h-[2.5rem] md:w-[10rem] lg:h-[3.5rem] lg:w-[13rem]">
+                <div className="relative w-[6rem] md:w-[8rem] lg:w-[10rem]">
                   <Image
                     src={"/image/ci.png"}
                     alt={"ci"}
-                    fill
+                    width={1472}
+                    height={832}
                     className="object-contain object-left"
                   />
                 </div>

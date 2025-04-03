@@ -2,16 +2,44 @@
 
 import LocaleSwicher from "./LocaleSwicher";
 import NavMenu from "./NavMenu";
-// import MobileMenu from "./MobileMenu";
 import Logo from "./Logo";
+import { useEffect, useState } from "react";
+import MobileMenu from "./MobileMenu";
 
 const NavBar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      if (window.innerWidth < 850) {
+        setIsMobileMenuOpen(true);
+      } else {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    resizeHandler();
+
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, []);
+
   return (
     <header className="fixed z-20 w-full">
       <div className="flex h-[6.25rem] items-center justify-between bg-[#f4f4f6] opacity-90 lg:px-[5rem]">
         <Logo />
-        <NavMenu />
-        <LocaleSwicher />
+        {isMobileMenuOpen ? (
+          <div className="flex items-center">
+            <MobileMenu />
+            <LocaleSwicher />
+          </div>
+        ) : (
+          <NavMenu />
+        )}
+        {!isMobileMenuOpen && <LocaleSwicher />}
       </div>
     </header>
   );

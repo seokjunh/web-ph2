@@ -26,13 +26,13 @@ const HomeItem4 = () => {
         </div>
         <div className="flex flex-col items-center justify-center gap-6 px-4 sm:gap-8 md:flex-row md:gap-12 lg:gap-16">
           <div className="w-full max-w-[20rem] overflow-hidden rounded-3xl bg-white shadow-sm transition-transform duration-300 hover:scale-[1.02] sm:h-auto md:h-auto md:max-w-[30rem] lg:max-w-[40rem]">
-            <div className="relative h-[8rem] w-full sm:h-[9rem] md:h-[10rem] lg:h-[12rem]">
+            <div className="h-[10rem] sm:h-[15rem]">
               <Image
                 src={"/image/main_S1.jpg"}
                 alt="제조 데이터 연계 및 통합 솔루션"
-                fill
-                className="object-cover"
-                priority
+                width={2000}
+                height={1331}
+                className="h-full w-full object-cover"
               />
             </div>
             <div className="p-4 sm:p-6 md:p-8">
@@ -45,13 +45,13 @@ const HomeItem4 = () => {
             </div>
           </div>
           <div className="w-full max-w-[20rem] overflow-hidden rounded-3xl bg-white shadow-sm transition-transform duration-300 hover:scale-[1.02] sm:h-auto md:h-auto md:max-w-[30rem] lg:max-w-[40rem]">
-            <div className="relative h-[8rem] w-full sm:h-[9rem] md:h-[10rem] lg:h-[12rem]">
+            <div className="h-[10rem] sm:h-[15rem]">
               <Image
                 src={"/image/main_S2.jpg"}
                 alt="통합 관제 솔루션"
-                fill
-                className="object-cover"
-                priority
+                width={2000}
+                height={1125}
+                className="h-full w-full object-cover"
               />
             </div>
             <div className="p-4 sm:p-6 md:p-8">

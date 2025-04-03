@@ -3,7 +3,18 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const images = ["/image/img1.png", "/image/img2.png", "/image/img3.png"];
+const images = [
+  {
+    name: "/image/img2.png",
+    width: 1472,
+    height: 832,
+  },
+  {
+    name: "/image/img3.png",
+    width: 1472,
+    height: 832,
+  },
+];
 
 const HomeItem1 = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -20,25 +31,21 @@ const HomeItem1 = () => {
 
   return (
     <div className="lg:h-[calc(100vh-6.25rem)] lg:px-[5rem] lg:pb-[7rem]">
-      <div className="relative mx-auto aspect-[16/9] h-full w-full overflow-hidden rounded-4xl bg-black">
+      <div className="relative h-full w-full aspect-[16/9] overflow-hidden rounded-4xl bg-black">
         {images.map((img, idx) => (
           <div
             key={idx}
-            className={`absolute h-full w-full transition-opacity duration-[2s] ease-in-out ${currentIdx === idx ? "opacity-100" : "opacity-0"}`}
+            className={`absolute inset-0 transition-opacity duration-[2s] ease-in-out ${currentIdx === idx ? "opacity-100" : "opacity-0"}`}
           >
             <Image
-              src={img}
+              src={img.name}
               alt="Home banner image"
-              fill
-              className="object-cover brightness-50"
-              loading="eager"
-              priority={true}
-              sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 60vw"
-              quality={75}
-              placeholder="blur"
-              blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='12'/%3E%3C/filter%3E%3Crect width='100%' height='100%' fill='%23333333'/%3E%3C/svg%3E"
+              width={img.width}
+              height={img.height}
+              priority={idx === 0}
+              className="h-full w-full object-cover brightness-50"
             />
-            <div className="absolute top-[30%] left-[5%] space-y-4 text-white lg:top-[40%] lg:left-[10%]">
+            <div className="absolute top-[30%] left-[5%] max-w-[90%] space-y-4 text-white lg:top-[40%] lg:left-[10%] lg:max-w-[80%]">
               <div>
                 <p className="text-lg font-bold sm:text-xl md:text-5xl">
                   Innovate

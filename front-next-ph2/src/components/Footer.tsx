@@ -2,8 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center space-y-6 bg-[#1e1e1e] py-24 text-white">
+      <div className="flex flex-col items-center justify-center space-y-6 bg-[#1e1e1e] py-24 text-white px-5">
         <div className="text-xl">(주)나무아이앤씨</div>
         <div className="flex space-x-4">
           <Link href={"/"}>Business</Link>
@@ -23,7 +22,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 export default Footer;
